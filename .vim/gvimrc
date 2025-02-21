@@ -204,11 +204,11 @@ augroup END
 augroup Vim
    autocmd!
    autocmd VimEnter * if (argv(0)=="" || argv(0) == '.') |
-                      \ call SetPWD($PWD)
+                      \ call SetPWD($PWD) |
                       \ elseif (isdirectory(argv(0))) |
-                      \ call SetPWD(argv(0)) 
+                      \ call SetPWD(argv(0)) |
                       \ else |
-                      \ call SetPWD(expand("%:h")) 
+                      \ call SetPWD(expand("%:h")) |
                       \ endif
    " autocmd WinEnter,BufEnter * if ((&ft == "help") || (&ft == "nerdtree") || (&ft == "netrw")) | stopinsert | else | startinsert | endif
    autocmd BufEnter * if ((&ft != "help" && &ft != "nerdtree" && &ft != "netrw") && g:NERDTree.IsOpen() == 0) | :NERDTreeFocus | :wincmd p | endif
